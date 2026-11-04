@@ -3,8 +3,31 @@
 int main(void)
 {
     // TODO: n 입력
-    // TODO: n명의 나이를 하나씩 읽어 요금 계산 및 출력
-    // TODO: Visitors / Free / Total 출력
+    int i, n, age, fee;
+    int visitors = 0, free= 0, total = 0;
 
+    scanf("%d\n", &n);
+    // TODO: n명의 나이를 하나씩 읽어 요금 계산 및 출력
+    for (i = 1; i <= n; i++) {
+        scanf("%d", &age);
+        if(age < 0 || age > 120) {
+            printf("#%d invalid\n", i);
+            continue;
+        }
+        if (age <= 5) fee = 0;
+        else if (age <= 12) fee = 1000;
+        else if (age <= 18) fee = 1500;
+        else if (age <= 64) fee = 3000;
+        else fee = 0;
+            
+        printf("#%d %d won\n", i, fee);
+        visitors++;
+        if(fee == 0) free++;
+        total += fee; 
+    }
+    // TODO: Visitors / Free / Total 출력
+    printf("Visitors: %d\n", visitors);
+    printf("Free: %d\n", free);
+    printf("Total: %d\n", total);
     return 0;
 }
