@@ -23,7 +23,7 @@ public class P1TempConvert {
             }else if(unit.equals("F")) {
                 System.out.printf("%.1fF = %.1fC%n", v, FtoC(v));
             }else {
-                System.out.println("Invalid unit");
+                System.out.println("Unknown unit");
             }
         }
         sc.close();

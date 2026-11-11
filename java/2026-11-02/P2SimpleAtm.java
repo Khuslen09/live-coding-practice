@@ -14,7 +14,7 @@ public class P2SimpleAtm {
                 break;
             }
             if (cmd.equals("B")) {
-                System.out.println("Balance is: \" + balance");
+                System.out.println("Balance is: " + balance);
             }else if(cmd.equals("D") || cmd.equals("W")) {
                 int amount = sc.nextInt();
                 if(amount <= 0) {
