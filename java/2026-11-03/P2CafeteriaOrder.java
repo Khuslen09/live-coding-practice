@@ -20,7 +20,32 @@ public class P2CafeteriaOrder {
     }
     public static void main(String[] args) {
         // TODO: 손님 유형, n 입력
+        Scanner sc = new Scanner(System.in);
+        String type = sc.next();
+        int n = sc.nextInt();
+        boolean isStudent = type.equals("STUDENT");
+        int subtotal = 0;
+
         // TODO: 주문 n줄 처리
+        for (int i = 0; i < n; i++){
+            String menu = sc.next();
+            int qty = sc.nextInt();
+            int price = priceOf(menu);
+            if(price == -1) {
+                System.out.println("Unknown menu : " + menu);
+            }else if(qty <= 0) {
+                System.out.println("Invalid qty: " + menu);
+            }else{
+                int amount = price * qty;
+                subtotal += amount;
+                System.out.println(menu + " x" + qty + " = " + amount);
+            }
+        }
         // TODO: Subtotal / Discount / Total 출력
+        int discount = calcDiscount(subtotal, isStudent);
+        System.out.println("Subtotal: " + subtotal);
+        System.out.println("Discount: " + discount);
+        System.out.println("Total: " + (subtotal - discount));
+        sc.close();
     }
 }
